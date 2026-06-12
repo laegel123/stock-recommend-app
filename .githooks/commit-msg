@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# commit-msg hook — Conventional Commits 강제
+#   형식: <type>(<scope>)?(!)?: <subject>
+#   type: feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert
+#
+set -u
+MSG_FILE="$1"
+RED=$'\033[31m'; RST=$'\033[0m'
+
+# 주석/빈 줄 제외한 첫 줄(헤더)
+header="$(grep -vE '^[[:space:]]*#' "$MSG_FILE" | sed '/^[[:space:]]*$/d' | head -n1)"
+
+# merge / revert / fixup / squash 자동 메시지는 허용
+case "$header" in
+  "Merge "*|"Revert "*|"fixup!"*|"squash!"*|"Reapply "*) exit 0 ;;
+esac
+
+PATTERN='^(feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert)(\([a-z0-9_.-]+\))?!?: .+'
+if ! printf '%s' "$header" | grep -qE "$PATTERN"; then
+  {
+    printf '%s\n' "${RED}✗ 커밋 메시지가 Conventional Commits 형식이 아닙니다.${RST}"
+    printf '%s\n' "  형식 : <type>(<scope>)?: <subject>"
+    printf '%s\n' "  type : feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert"
+    printf '%s\n' "  예   : feat(ingest): add Form 4 parser"
+    printf '%s\n' "  현재 : ${header:-<빈 메시지>}"
+  } >&2
+  exit 1
+fi
+exit 0

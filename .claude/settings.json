@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "node .claude/hooks/block-unsafe-git.mjs" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "node .claude/hooks/format-on-edit.mjs" }
+        ]
+      }
+    ]
+  }
+}

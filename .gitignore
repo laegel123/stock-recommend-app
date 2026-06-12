@@ -36,3 +36,6 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Claude Code — 개인 오버라이드만 무시(.claude/settings.json 은 공유)
+.claude/settings.local.json

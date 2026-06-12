@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# pre-commit hook — 시크릿 커밋 차단
+#   gitleaks 가 있으면 사용, 없으면 정규식 폴백으로 스테이징된 추가 라인을 스캔.
+#   (.githooks 정의 자체는 패턴 텍스트를 담고 있어 스캔에서 제외)
+#
+set -u
+RED=$'\033[31m'; RST=$'\033[0m'
+fail(){ printf '%s\n' "${RED}✗ $*${RST}" >&2; exit 1; }
+
+# 1) .env 파일 자체 커밋 차단(.env.example 제외)
+envf="$(git diff --cached --name-only --diff-filter=AM | grep -E '(^|/)\.env($|\.)' | grep -vE '\.env\.example$' || true)"
+[ -n "$envf" ] && fail "환경파일(.env)을 커밋하려 합니다 — 차단:
+$envf"
+
+# 2) gitleaks 우선
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --redact --no-banner \
+    || fail "gitleaks: 시크릿 의심 — 커밋 중단. 오탐이면 .gitleaksignore 사용."
+  exit 0
+fi
+
+# 3) 폴백: 스테이징된 '추가 라인'만 스캔(.githooks·lock 제외), 따옴표 제거 후 패턴 매칭
+added="$(git diff --cached --no-color -U0 -- . \
+          ':(exclude).githooks/*' ':(exclude)*.lock' ':(exclude)pnpm-lock.yaml' \
+        | grep -E '^\+[^+]' || true)"
+clean="$(printf '%s' "$added" | tr -d "\"'")"
+
+patterns='AKIA[0-9A-Z]{16}
+-----BEGIN [A-Z ]*PRIVATE KEY-----
+gh[pousr]_[A-Za-z0-9]{20,}
+xox[baprs]-[A-Za-z0-9-]{10,}
+(secret|token|passwd|password|api[_-]?key|apikey|access[_-]?key)[[:space:]]*[:=][[:space:]]*[A-Za-z0-9_/+.=-]{16,}'
+
+while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  if printf '%s' "$clean" | grep -qEi -e "$p"; then
+    fail "시크릿으로 의심되는 패턴이 스테이징됐습니다 (패턴: ${p:0:28}…).
+  키는 .env(gitignore 대상)로 옮기세요. 오탐이면 패턴을 피하거나, 정말 필요시 git commit --no-verify(권장X)."
+  fi
+done <<EOF
+$patterns
+EOF
+
+exit 0

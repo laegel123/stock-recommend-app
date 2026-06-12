@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+#
+# pre-push hook — stock-recommend-app
+#
+#   1) main/master 로의 강제(force / non-fast-forward) · 삭제 푸시를 차단한다.
+#   2) 테스트 우선(TDD) 백스톱: 푸시되는 커밋에서 소스(src)가 바뀌면 테스트도 바뀌어야 한다.
+#      (정당한 예외: 커밋 메시지에 [skip-tdd] 또는 `SKIP_TDD=1 git push`)
+#   3) 푸시 전에 typecheck -> lint -> test 를 강제한다(해당 스크립트가 정의돼 있을 때). build 는 CI.
+#
+# 활성화(최초 1회): git config core.hooksPath .githooks
+#                  (또는 `bash scripts/setup-hooks.sh` / `scripts/setup-hooks.ps1`)
+#
+set -u
+
+PROTECTED_BRANCHES="main master"
+ZERO="0000000000000000000000000000000000000000"
+RED=$'\033[31m'; GRN=$'\033[32m'; YLW=$'\033[33m'; RST=$'\033[0m'
+
+fail() { printf '%s\n' "${RED}✗ $*${RST}" >&2; exit 1; }
+info() { printf '%s\n' "${YLW}• $*${RST}"; }
+ok()   { printf '%s\n' "${GRN}✓ $*${RST}"; }
+
+# 소스/테스트/제외 분류 (정규식)
+SRC_RE='^(apps|packages|services)/.+\.(ts|tsx|js|jsx|py)$'
+TEST_RE='\.(test|spec)\.(ts|tsx|js|jsx)$|(^|/)(__tests__|tests?)/|(^|/)test_[^/]+\.py$|_test\.py$'
+EXCL_RE='\.d\.ts$|\.config\.(ts|js|mjs|cjs)$|\.stories\.(tsx?|jsx?)$|(^|/)(migrations|__generated__|generated|dist|build|node_modules)/'
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || fail "git repo 루트를 찾지 못했습니다."
+cd "$ROOT" || fail "repo 루트로 이동 실패: $ROOT"
+
+CHANGED_ALL=""
+SKIP_TDD_MARK=0
+
+# ── 1) 보호 브랜치 보호 + 변경 파일/스킵마커 수집 ──────────────────────
+# stdin 한 줄: <local ref> <local sha> <remote ref> <remote sha>
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -z "${remote_ref:-}" ] && continue
+  branch="${remote_ref#refs/heads/}"
+
+  # 삭제 푸시(로컬 sha = 0)
+  if [ "$local_sha" = "$ZERO" ]; then
+    for prot in $PROTECTED_BRANCHES; do
+      [ "$branch" = "$prot" ] && fail "'$prot' 브랜치 삭제 푸시는 금지됩니다."
+    done
+    continue
+  fi
+
+  # 보호 브랜치 강제(비-fast-forward) 푸시 차단
+  for prot in $PROTECTED_BRANCHES; do
+    if [ "$branch" = "$prot" ] && [ "$remote_sha" != "$ZERO" ]; then
+      git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null \
+        || fail "'$prot' 에 강제(force/비-fast-forward) 푸시는 금지됩니다. 히스토리 재작성 대신 새 커밋이나 PR을 사용하세요."
+    fi
+  done
+
+  # 변경 파일 범위 결정
+  if [ "$remote_sha" != "$ZERO" ]; then
+    base="$remote_sha"
+  else
+    base="$(git merge-base "$local_sha" refs/remotes/origin/HEAD 2>/dev/null \
+            || git merge-base "$local_sha" refs/remotes/origin/main 2>/dev/null \
+            || git merge-base "$local_sha" refs/remotes/origin/master 2>/dev/null \
+            || true)"
+  fi
+  if [ -n "$base" ]; then
+    files="$(git diff --name-only "$base" "$local_sha" 2>/dev/null || true)"
+    msgs="$(git log --format=%B "$base..$local_sha" 2>/dev/null || true)"
+  else
+    files="$(git diff --name-only "${local_sha}~1" "$local_sha" 2>/dev/null || true)"
+    msgs="$(git log -1 --format=%B "$local_sha" 2>/dev/null || true)"
+  fi
+  CHANGED_ALL="$CHANGED_ALL
+$files"
+  printf '%s' "$msgs" | grep -qiE '\[(skip-tdd|no-tdd)\]' && SKIP_TDD_MARK=1
+done
+
+# ── 2) 테스트 우선(TDD) 백스톱: 소스 변경 시 테스트 동반 ──────────────
+if [ "${SKIP_TDD:-0}" != "0" ] || [ "$SKIP_TDD_MARK" = "1" ]; then
+  info "TDD 가드 건너뜀 (SKIP_TDD 또는 [skip-tdd] 마커)."
+else
+  changed_uniq="$(printf '%s\n' "$CHANGED_ALL" | sed '/^[[:space:]]*$/d' | sort -u)"
+  src_changed="$(printf '%s\n' "$changed_uniq" | grep -E "$SRC_RE" | grep -Ev "$TEST_RE" | grep -Ev "$EXCL_RE" || true)"
+  test_changed="$(printf '%s\n' "$changed_uniq" | grep -E "$TEST_RE" || true)"
+  if [ -n "$src_changed" ] && [ -z "$test_changed" ]; then
+    printf '%s\n' "${RED}✗ 테스트 우선(TDD) 위반: 소스가 변경됐지만 테스트 변경이 없습니다.${RST}" >&2
+    printf '%s\n' "  먼저 실패하는 테스트를 작성하세요(RED → GREEN). 대상 소스:" >&2
+    printf '%s\n' "$src_changed" | sed 's/^/    - /' >&2
+    printf '%s\n' "  정당한 예외: 커밋 메시지에 [skip-tdd] 또는 'SKIP_TDD=1 git push'." >&2
+    exit 1
+  fi
+  [ -n "$src_changed" ] && ok "TDD 가드 통과 (소스 변경에 테스트 동반)." || true
+fi
+
+# ── 3) lint -> build -> test 강제 ───────────────────────────────────
+if [ ! -f package.json ]; then
+  info "package.json 없음 — lint/build/test 건너뜀 (스캐폴딩 전)."
+  ok "pre-push 통과."
+  exit 0
+fi
+
+if command -v pnpm >/dev/null 2>&1; then PM="pnpm"
+elif command -v npm >/dev/null 2>&1; then PM="npm"
+else fail "pnpm/npm 을 찾을 수 없습니다. Node 패키지 매니저를 설치하세요."
+fi
+
+has_script() { grep -qE "\"$1\"[[:space:]]*:" package.json; }
+
+run() {
+  s="$1"
+  if has_script "$s"; then
+    printf '%s\n' "▶ $PM run $s"
+    if [ "$PM" = "pnpm" ]; then
+      pnpm "$s" || fail "$s 실패 — 푸시를 중단합니다."
+    else
+      npm run "$s" || fail "$s 실패 — 푸시를 중단합니다."
+    fi
+    ok "$s"
+  else
+    info "'$s' 스크립트 미정의 — 건너뜀."
+  fi
+}
+
+run typecheck
+run lint
+run test
+# 참고: build(tsc/next build, 모노레포)는 매 푸시엔 느려 CI 로 옮긴다.
+
+ok "모든 pre-push 검사 통과."
+exit 0
