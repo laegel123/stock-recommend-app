@@ -23,6 +23,7 @@ yarn-debug.log*
 # Test / coverage
 coverage/
 .turbo/
+.eslintcache
 
 # Python sidecar (services/kr-prices)
 __pycache__/

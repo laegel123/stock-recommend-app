@@ -1,0 +1,21 @@
+# 의존성 / 빌드 산출물
+node_modules
+dist
+build
+.next
+out
+coverage
+
+# 락파일
+pnpm-lock.yaml
+
+# 손으로 관리하는 문서(Markdown 산문)
+*.md
+
+# 에이전트 하네스 / git 훅(직접 관리)
+.claude/
+.githooks/
+
+# Next 가 생성·관리하는 파일
+apps/web/next-env.d.ts
+apps/web/tsconfig.json
