@@ -1,0 +1,11 @@
+# 플레이스홀더 — Phase 2 에서 의존성/툴체인을 채운다(.py 소스는 아직 없음).
+[project]
+name = "kr-prices"
+version = "0.0.0"
+description = "한국 EOD 가격 사이드카 (FastAPI + pykrx) — Phase 2"
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
