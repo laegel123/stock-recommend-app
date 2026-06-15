@@ -1,0 +1,23 @@
+{
+  "name": "@app/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node -e \"console.log('db:migrate — Phase 0 slice 2 (Drizzle) 미구현')\"",
+    "db:seed": "node -e \"console.log('db:seed — Phase 0 slice 3 (investors.seed) 미구현')\""
+  },
+  "dependencies": {
+    "@app/shared": "workspace:*",
+    "fastify": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}
