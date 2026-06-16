@@ -180,11 +180,12 @@ export const activityEvents = pgTable(
     eventType: eventTypeEnum('event_type').notNull(),
     eventDate: date('event_date').notNull(),
     filingDate: date('filing_date').notNull(),
+    /** 부호 있는 델타: 취득(BUY/STAKE_*)=+, 처분(SELL/EXIT)=− → SUM(shares_delta)=순증감. */
     sharesDelta: sharesCol('shares_delta'),
-    sharesAfter: sharesCol('shares_after'),
+    sharesAfter: sharesCol('shares_after'), // 거래 후 잔고(양수)
     pctOfCompanyAfter: pctCol('pct_of_company_after'),
     pricePerShare: numeric('price_per_share', { precision: 20, scale: 6 }),
-    value: moneyCol('value'),
+    value: moneyCol('value'), // 부호 있는 거래 금액(=shares_delta×price). 표시 총액은 abs() 권장
     intent: intentEnum('intent'),
     accessionNumber: text('accession_number').notNull(),
     rawUrl: text('raw_url').notNull(),

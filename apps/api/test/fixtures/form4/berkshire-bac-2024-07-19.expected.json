@@ -1,0 +1,81 @@
+{
+  "documentType": "4",
+  "periodOfReport": "2024-07-17",
+  "issuer": {
+    "cik": "70858",
+    "name": "BANK OF AMERICA CORP /DE/",
+    "tradingSymbol": "BAC"
+  },
+  "reportingOwners": [
+    {
+      "cik": "1067983",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "isDirector": false,
+      "isOfficer": false,
+      "isTenPercentOwner": true,
+      "isOther": false
+    },
+    {
+      "cik": "315090",
+      "name": "BUFFETT WARREN E",
+      "isDirector": false,
+      "isOfficer": false,
+      "isTenPercentOwner": true,
+      "isOther": false
+    }
+  ],
+  "events": [
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "S",
+      "eventType": "SELL",
+      "eventDate": "2024-07-17",
+      "acquiredDisposed": "D",
+      "sharesDelta": -12690693,
+      "pricePerShare": 44.0679,
+      "sharesAfter": 1020161313,
+      "value": -559252190.05,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "S",
+      "eventType": "SELL",
+      "eventDate": "2024-07-18",
+      "acquiredDisposed": "D",
+      "sharesDelta": -7037367,
+      "pricePerShare": 43.2802,
+      "sharesAfter": 1013123946,
+      "value": -304578651.23,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "S",
+      "eventType": "SELL",
+      "eventDate": "2024-07-18",
+      "acquiredDisposed": "D",
+      "sharesDelta": -1871060,
+      "pricePerShare": 44.0668,
+      "sharesAfter": 1011252886,
+      "value": -82451626.81,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "S",
+      "eventType": "SELL",
+      "eventDate": "2024-07-19",
+      "acquiredDisposed": "D",
+      "sharesDelta": -12291807,
+      "pricePerShare": 43.1276,
+      "sharesAfter": 998961079,
+      "value": -530116135.57,
+      "directOrIndirect": "I"
+    }
+  ]
+}

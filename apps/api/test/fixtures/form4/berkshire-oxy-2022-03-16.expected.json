@@ -1,0 +1,120 @@
+{
+  "documentType": "4",
+  "periodOfReport": "2022-03-14",
+  "issuer": {
+    "cik": "797468",
+    "name": "OCCIDENTAL PETROLEUM CORP /DE/",
+    "tradingSymbol": "OXY"
+  },
+  "reportingOwners": [
+    {
+      "cik": "1067983",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "isDirector": false,
+      "isOfficer": false,
+      "isTenPercentOwner": true,
+      "isOther": false
+    },
+    {
+      "cik": "315090",
+      "name": "BUFFETT WARREN E",
+      "isDirector": false,
+      "isOfficer": false,
+      "isTenPercentOwner": true,
+      "isOther": false
+    }
+  ],
+  "events": [
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-14",
+      "acquiredDisposed": "A",
+      "sharesDelta": 1901149,
+      "pricePerShare": 55.0216,
+      "sharesAfter": 120171533,
+      "value": 104604259.82,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-14",
+      "acquiredDisposed": "A",
+      "sharesDelta": 5376500,
+      "pricePerShare": 55.3815,
+      "sharesAfter": 125548033,
+      "value": 297758634.75,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-15",
+      "acquiredDisposed": "A",
+      "sharesDelta": 2029931,
+      "pricePerShare": 52.9899,
+      "sharesAfter": 127577964,
+      "value": 107565840.7,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-15",
+      "acquiredDisposed": "A",
+      "sharesDelta": 1938641,
+      "pricePerShare": 53.7413,
+      "sharesAfter": 129516605,
+      "value": 104185087.57,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-15",
+      "acquiredDisposed": "A",
+      "sharesDelta": 1769805,
+      "pricePerShare": 54.5188,
+      "sharesAfter": 131286410,
+      "value": 96487644.83,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-16",
+      "acquiredDisposed": "A",
+      "sharesDelta": 3366227,
+      "pricePerShare": 53.7151,
+      "sharesAfter": 134652637,
+      "value": 180817219.93,
+      "directOrIndirect": "I"
+    },
+    {
+      "table": "nonDerivative",
+      "securityTitle": "Common Stock",
+      "transactionCode": "P",
+      "eventType": "BUY",
+      "eventDate": "2022-03-16",
+      "acquiredDisposed": "A",
+      "sharesDelta": 1720363,
+      "pricePerShare": 54.3729,
+      "sharesAfter": 136373000,
+      "value": 93541125.36,
+      "directOrIndirect": "I"
+    }
+  ]
+}
