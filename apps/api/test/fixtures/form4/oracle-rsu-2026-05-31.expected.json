@@ -1,0 +1,34 @@
+{
+  "documentType": "4",
+  "periodOfReport": "2026-05-31",
+  "issuer": {
+    "cik": "1341439",
+    "name": "ORACLE CORP",
+    "tradingSymbol": "ORCL"
+  },
+  "reportingOwners": [
+    {
+      "cik": "1142624",
+      "name": "RUSCKOWSKI STEPHEN H",
+      "isDirector": true,
+      "isOfficer": false,
+      "isTenPercentOwner": false,
+      "isOther": false
+    }
+  ],
+  "events": [
+    {
+      "table": "derivative",
+      "securityTitle": "Restricted Stock Unit",
+      "transactionCode": "A",
+      "eventType": "BUY",
+      "eventDate": "2026-05-31",
+      "acquiredDisposed": "A",
+      "sharesDelta": 1550,
+      "pricePerShare": 0,
+      "sharesAfter": 1550,
+      "value": 0,
+      "directOrIndirect": "D"
+    }
+  ]
+}
