@@ -27,7 +27,7 @@ DB: **PostgreSQL + Drizzle ORM** · 큐/스케줄: **BullMQ(Redis) + node-cron**
 > 아직 스캐폴딩 전이면 이 규약대로 셋업한다.
 - 설치: `pnpm install`
 - 타입체크: `pnpm typecheck`  ·  린트: `pnpm lint`  ·  포맷: `pnpm format`
-- 테스트: `pnpm test` (단위/픽스처)  ·  `pnpm test:watch`
+- 테스트: `pnpm test` (단위/픽스처)  ·  `pnpm test:watch`  ·  `pnpm test:e2e` (Playwright 화면 E2E, ADR-0016)
 - DB: `pnpm db:up` (docker-compose: Postgres+Redis)  ·  `pnpm db:migrate`  ·  `pnpm db:seed`
 - 개발: `pnpm --filter api dev`  ·  `pnpm --filter web dev`
 - 훅 활성화(최초 1회, 클론 후): `bash scripts/setup-hooks.sh` (또는 PowerShell `scripts/setup-hooks.ps1`)
@@ -47,8 +47,9 @@ DB: **PostgreSQL + Drizzle ORM** · 큐/스케줄: **BullMQ(Redis) + node-cron**
 - **파생 로직**(`compute:changes`·`compute:consensus`)은 분기 fixture로 결정적 검증.
 - **인제스트 멱등성**: 같은 `accession_number` 재실행이 중복 행을 만들지 않음(unique key).
 - **레이트리미트 안전**: SEC ≤8 req/s + `User-Agent` 헤더 필수, 429 0건.
+- **테스트 레이어**(ADR-0016): 단위/픽스처(vitest)가 기본. **화면 전용 불변식**(면책 상시 노출·중립 카피·차트 렌더·핵심 페이지)만 **E2E(Playwright, `pnpm test:e2e`)**. 데이터·파싱·파생은 vitest, 렌더 동작·가드레일은 E2E. E2E 스펙은 루트 `e2e/`(vitest와 글롭 분리). 개발 중 시각 검증은 Playwright **MCP**(`.mcp.json`).
 
-이 게이트는 `.githooks/pre-push`로 **푸시 시점에 자동 강제**된다(스크립트가 정의되면 typecheck→lint→test 실행, 실패 시 푸시 차단; build 는 CI).
+이 게이트는 `.githooks/pre-push`로 **푸시 시점에 자동 강제**된다(스크립트가 정의되면 typecheck→lint→test 실행, 실패 시 푸시 차단; build·E2E 는 CI). **E2E는 무거워 pre-push 기본 비활성** — 로컬 강제는 `RUN_E2E=1 git push`, 상시 강제는 **CI**(`.github/workflows/ci.yml`: verify[typecheck·lint·test·build] + e2e).
 또한 `main`/`master`로의 **강제(force)·삭제 푸시는 차단**된다. `commit-msg`(Conventional Commits)·`pre-commit`(시크릿 스캔)도 함께 활성화된다. 최초 1회 `scripts/setup-hooks`로 활성화. 상세는 `.githooks/README.md`.
 
 에이전트 차원 자동화(`.claude/`): **PreToolUse**가 `--no-verify`·강제푸시를 차단하고, **PostToolUse**가 편집 시 자동 포맷·타입체크를 돈다. 프로젝트 스킬: `/new-parser`(TDD 파서 스캐폴드), `/adr`, `/add-investor`.

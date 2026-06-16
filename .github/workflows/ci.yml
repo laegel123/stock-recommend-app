@@ -1,0 +1,52 @@
+name: CI
+
+# ADR-0012/0015/0016: typecheck·lint·test 는 pre-push 와 CI 양쪽에서, build·E2E 는 CI 에서 강제한다.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# 같은 ref 의 이전 실행은 취소(러너 절약).
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: typecheck · lint · test · build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      # ADR-0015: build 는 pre-push 에서 빼고 CI 에서 강제(현재는 apps/web 만 build 스크립트 보유).
+      - run: pnpm -r --if-present run build
+
+  e2e:
+    name: e2e (Playwright)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # chromium + OS 의존성 설치(헤드리스 실행에 필요).
+      - run: pnpm exec playwright install --with-deps chromium
+      # CI=true → playwright.config 가 새 dev 서버 기동 + 재시도 + html 리포트.
+      - run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

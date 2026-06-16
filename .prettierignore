@@ -6,6 +6,9 @@ build
 out
 coverage
 
+# drizzle-kit 이 생성·관리하는 마이그레이션 산출물(직접 편집 X)
+apps/api/drizzle
+
 # 락파일
 pnpm-lock.yaml
 
