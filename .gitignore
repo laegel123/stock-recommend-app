@@ -25,6 +25,12 @@ coverage/
 .turbo/
 .eslintcache
 
+# Playwright (E2E)
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # Python sidecar (services/kr-prices)
 __pycache__/
 *.py[cod]

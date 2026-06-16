@@ -123,6 +123,14 @@ run() {
 run typecheck
 run lint
 run test
+
+# E2E(Playwright)는 무겁다(브라우저+웹서버 기동) → 기본 비활성, 옵트인일 때만 실행한다.
+#   로컬 게이트로 강제: `RUN_E2E=1 git push`. 상시 강제는 CI 에서 한다(build 와 같은 논리).
+if [ "${RUN_E2E:-0}" != "0" ]; then
+  run test:e2e
+else
+  info "E2E 건너뜀(RUN_E2E 미설정). 로컬 강제는 'RUN_E2E=1 git push', 상시 강제는 CI."
+fi
 # 참고: build(tsc/next build, 모노레포)는 매 푸시엔 느려 CI 로 옮긴다.
 
 ok "모든 pre-push 검사 통과."
