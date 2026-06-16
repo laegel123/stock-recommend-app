@@ -1,0 +1,58 @@
+{
+  "formType": "SC 13G",
+  "isAmendment": false,
+  "amendmentNo": null,
+  "intent": "passive",
+  "eventType": "STAKE_NEW",
+  "eventDate": "2026-05-15",
+  "previousAccessionNumber": null,
+  "filerCik": "1167483",
+  "securitiesClassTitle": "Class A Common Stock, $0.00001 par value per share",
+  "issuer": { "cik": "2021728", "name": "Cerebras Systems Inc.", "cusip": "15675D103" },
+  "reportingPersons": [
+    {
+      "cik": null,
+      "name": "Tiger Global Investments, L.P.",
+      "sharesOwned": 2999000,
+      "pctOfClass": 8.69,
+      "soleVotingPower": 0,
+      "sharedVotingPower": 2999000,
+      "soleDispositivePower": 0,
+      "sharedDispositivePower": 2999000,
+      "typeOfReportingPerson": "PN"
+    },
+    {
+      "cik": null,
+      "name": "Tiger Global Performance, LLC",
+      "sharesOwned": 2999000,
+      "pctOfClass": 8.69,
+      "soleVotingPower": 0,
+      "sharedVotingPower": 2999000,
+      "soleDispositivePower": 0,
+      "sharedDispositivePower": 2999000,
+      "typeOfReportingPerson": "OO"
+    },
+    {
+      "cik": null,
+      "name": "Tiger Global Management, LLC",
+      "sharesOwned": 3496222,
+      "pctOfClass": 9.99,
+      "soleVotingPower": 0,
+      "sharedVotingPower": 3496222,
+      "soleDispositivePower": 0,
+      "sharedDispositivePower": 3496222,
+      "typeOfReportingPerson": "IA,OO"
+    },
+    {
+      "cik": null,
+      "name": "Charles P. Coleman III",
+      "sharesOwned": 3496222,
+      "pctOfClass": 9.99,
+      "soleVotingPower": 0,
+      "sharedVotingPower": 3496222,
+      "soleDispositivePower": 0,
+      "sharedDispositivePower": 3496222,
+      "typeOfReportingPerson": "HC,IN"
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13D" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>SCHEDULE 13D</submissionType>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <!-- Field: Pseudo-Tag; ID: Name; Data: ICAHN CARL C -->
+          <cik>0000921669</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <securitiesClassTitle>Common Stock, par value $0.01 per share</securitiesClassTitle>
+      <dateOfEvent>11/10/2025</dateOfEvent>
+      <previouslyFiledFlag>true</previouslyFiledFlag>
+      <issuerInfo>
+        <issuerCIK>0001981599</issuerCIK>
+        <issuerCUSIP>155923105</issuerCUSIP>
+        <issuerName>Centuri Holdings, Inc.</issuerName>
+        <address>
+          <com:street1>19820 NORTH 7TH AVENUE SUITE 120</com:street1>
+          <com:city>PHOENIX</com:city>
+          <com:stateOrCountry>AZ</com:stateOrCountry>
+          <com:zipCode>85027</com:zipCode>
+        </address>
+      </issuerInfo>
+      <authorizedPersons>
+        <notificationInfo>
+          <personName>Jesse A. Lynn, Esq.</personName>
+          <personPhoneNum>(305) 422-4100</personPhoneNum>
+          <personAddress>
+            <com:street1>16690 Collins Avenue, PH-1</com:street1>
+            <com:city>Sunny Isles Beach</com:city>
+            <com:stateOrCountry>FL</com:stateOrCountry>
+            <com:zipCode>33160</com:zipCode>
+          </personAddress>
+        </notificationInfo>
+      </authorizedPersons>
+    </coverPageHeader>
+    <reportingPersons>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0000813762</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Icahn Enterprises L.P.</reportingPersonName>
+        <fundType>WC</fundType>
+        <legalProceedings>Y</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>14336044.00</soleVotingPower>
+        <sharedVotingPower>0.00</sharedVotingPower>
+        <soleDispositivePower>14336044.00</soleDispositivePower>
+        <sharedDispositivePower>0.00</sharedDispositivePower>
+        <aggregateAmountOwned>14336044.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>14.4</percentOfClass>
+        <typeOfReportingPerson>PN</typeOfReportingPerson>
+      </reportingPersonInfo>
+      <reportingPersonInfo>
+        <reportingPersonCIK>0000921669</reportingPersonCIK>
+        <reportingPersonNoCIK>N</reportingPersonNoCIK>
+        <reportingPersonName>Carl C. Icahn</reportingPersonName>
+        <fundType>OO</fundType>
+        <legalProceedings>Y</legalProceedings>
+        <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+        <soleVotingPower>14336044.00</soleVotingPower>
+        <sharedVotingPower>0.00</sharedVotingPower>
+        <soleDispositivePower>14336044.00</soleDispositivePower>
+        <sharedDispositivePower>0.00</sharedDispositivePower>
+        <aggregateAmountOwned>14336044.00</aggregateAmountOwned>
+        <isAggregateExcludeShares>N</isAggregateExcludeShares>
+        <percentOfClass>14.4</percentOfClass>
+        <typeOfReportingPerson>IN</typeOfReportingPerson>
+      </reportingPersonInfo>
+    </reportingPersons>
+    <items1To7>
+      <item1>
+        <securityTitle>Common Stock, par value $0.01 per share</securityTitle>
+        <issuerName>Centuri Holdings, Inc.</issuerName>
+        <issuerPrincipalAddress>
+          <com:street1>19820 NORTH 7TH AVENUE SUITE 120</com:street1>
+          <com:city>PHOENIX</com:city>
+          <com:stateOrCountry>AZ</com:stateOrCountry>
+          <com:zipCode>85027</com:zipCode>
+        </issuerPrincipalAddress>
+        <commentText>This statement relates to the shares of common stock, $0.01 par value per share (the "Common Stock"), issued by Centuri Holdings, Inc. (the "Issuer"). This Schedule 13D and the information set forth herein reflects the required conversion of the disclosure of the Reporting Persons' interests with respect to the Issuer from Schedule 13G to Schedule 13D, and this Schedule 13D and the information set forth herein supersedes all previous filings made by the Reporting Persons with respect to the Issuer on their previously filed Schedule 13G, including any amendments thereto.</commentText>
+      </item1>
+      <item2>
+        <filingPersonName>The persons filing this statement are Icahn Enterprises L.P., a Delaware master limited partnership ("Icahn Enterprises"), and Carl C. Icahn, a citizen of the United States of America (collectively, the "Reporting Persons"). Icahn Enterprises owns the shares of the Common Stock reported herein indirectly through its subsidiary entities Icahn Partners LP and Icahn Partners Master Fund LP. Icahn Enterprises G.P. Inc., a Delaware corporation ("Icahn Enterprises GP"), is the general partner of Icahn Enterprises.</filingPersonName>
+        <principalBusinessAddress>The principal business address of each of the Reporting Persons and Icahn Enterprises G.P. is 16690 Collins Avenue, PH-1, Sunny Isles Beach, FL 33160.</principalBusinessAddress>
+        <principalJob>Mr. Icahn's present principal occupation or employment is serving as (i) the Chief Executive Officer of Icahn Capital LP, a Delaware limited partnership and a wholly owned subsidiary of Icahn Enterprises through which Mr. Icahn manages various private investment funds, (ii) Chairman of the Board of Icahn Enterprises GP, the general partner of Icahn Enterprises, a Nasdaq listed diversified holding company engaged in a variety of businesses, and (iii) Chairman of the Board and a director of each of Starfire Holding Corporation, a Delaware corporation ("Starfire"), a holding company engaged in the business of investing in and/or holding securities of various entities, and as various of Starfire's subsidiaries.
+
+Set forth below are the names, and positions of each director and each executive officer of Icahn Enterprises G.P. Each person is a citizen of the United States of America and has a business address at 16690 Collins Avenue, PH-1, Sunny Isles Beach, FL 33160.  Each executive officer's principal occupation is as an employee of one or more of Icahn Enterprises, Icahn Enterprises G.P. and/or one or more of their affiliates.
+
+Name                                         Position
+Denise Barton                          Director
+Nancy Dunlap                          Director
+Robert Flint                              Chief Accounting Officer
+Brett Icahn                                Director
+Carl C. Icahn                            Chairman
+Alvin B. Krongard                     Director
+Margarita Palau-Hernandez     Director
+Joseph Pacetti                         Director of SEC Reporting
+Ted Papapostolou                    Director; Chief Financial Officer; Secretary
+Craig Pettit                               Vice President of Tax Administration
+Andrew Teno                            Director; President; Chief Executive Officer; Principal Executive Officer</principalJob>
+        <hasBeenConvicted>Except as otherwise set forth herein, none of the Reporting Persons nor, to the Reporting Persons' knowledge, any other person or entity named herein, has, during the past five years, (i) been convicted in a criminal proceeding (excluding traffic violations or similar misdemeanors), or (ii) been a party to a civil proceeding of a judicial or administrative body of competent jurisdiction and as a result of such proceeding was or is subject to a judgment, decree or final order enjoining future violations of, or prohibiting, or mandating activities subject to, federal or state securities laws or a finding of any violation with respect to such laws.</hasBeenConvicted>
+        <convictionDescription>On August 19, 2024, Icahn Enterprises and Carl C. Icahn entered into settlement agreements with the U.S. Securities and Exchange Commission (the "SEC"), in connection with its inquiry previously disclosed by Icahn Enterprises. In connection with that settlement, the SEC entered an order in an administrative proceeding that contains non-scienter based findings that Icahn Enterprises failed to disclose in its Forms 10-K for the years 2018, 2019 and 2020 that Mr. Icahn pledged Icahn Enterprises securities as collateral to secure personal margin loans as required by Item 403(b) of Regulation S-K. The order relating to Mr. Icahn contains non-scienter based findings that, while Mr. Icahn's prior Schedule 13D filings generally disclosed that he had pledged Icahn Enterprises depository units as collateral for personal margin loans, subsequent Schedule 13D filings were not amended to describe loan agreements and amendments to loan agreements or to attach guarantees as required by Items 6 and 7 of Schedule 13D. Without admitting or denying the SEC's allegations (other than with respect to the SEC's jurisdiction), under the terms of the settlements, (i) Icahn Enterprises consented to the entry of an order requiring it to pay a civil penalty of $1.5 million and to cease and desist from violations and any future violations of Section 13(a) of the Securities Exchange Act of 1934, as amended (the "Exchange Act"), and Rule 13a-1 thereunder, and (ii) Mr. Icahn consented to the entry of an order requiring him to pay a civil penalty of $500,000 and to cease and desist from committing or causing any violations of Section 13(d)(2) of the Exchange Act and Rule 13d-2(a) thereunder.</convictionDescription>
+        <citizenship>Icahn Enterprises is a Delaware master limited partnership and Carl C. Icahn is a citizen of the United States of America.</citizenship>
+      </item2>
+      <item3>
+        <fundsSource>On November 11, 2025, Icahn Partners LP and Icahn Partners Master Fund LP, subsidiaries of the Reporting Persons, entered into a Common Stock Purchase Agreement (the "Purchase Agreement"), pursuant to which they agreed to purchase $75 million in shares of the Common Stock from the Issuer in a private placement at the same price as the Issuer planned to sell shares of Common Stock in an underwritten public offering. On November 13, 2025, the Issuer announced that the price per share for the shares of Common Stock to be sold in its underwritten public offering was $21.50. As a result, Icahn Partners LP and Icahn Partners Master Fund LP, subsidiaries of the Reporting Persons, will purchase an aggregate of 3,488,372 shares of Common Stock from the Issuer in the private placement for an aggregate purchase price of approximately $75 million. The transactions contemplated by the Purchase Agreement are anticipated to close on or about November 14, 2025.
+
+Following the transactions contemplated by the Purchase Agreement, the Reporting Persons may be deemed to be the beneficial owner of, in the aggregate, 14,336,044 shares of Common Stock, which includes the shares of Common Stock to be purchased pursuant to the Purchase Agreement. The source of funding for the shares of the Common Stock reported herein held by the Reporting Persons was the general working capital of the respective purchasers, which may from time to time include margin borrowing in margin accounts established and maintained with one or more prime brokers and/or other third parties which extend margin credit in the ordinary course of business as and when required by the Reporting Persons for the Reporting Persons and/or their affiliates to acquire and/or hold various securities, which include the shares of the Common Stock reported herein, and the shares of the Common Stock reported herein may be pledged as collateral security for the repayment of loan amounts in such margin accounts. The margin accounts bear interest at market rates in effect from time to time. Because a variety of securities of various issuers are from time to time held in such margin accounts, it is not possible to determine the amounts, if any, of margin borrowing that may have been used to purchase the shares of the Common Stock reported herein.</fundsSource>
+      </item3>
+      <item4>
+        <transactionPurpose>The Reporting Persons acquired their positions in the shares of Common Stock in the belief that they were undervalued and represented an attractive investment opportunity.
+
+On November 10, 2025, the Reporting Persons and certain of their Affiliates and Mr. Dustin DeMaria entered into a Director Appointment and Nomination Agreement (the "Nomination Agreement") with the Issuer pursuant to which and subject to the terms therein, among other things, (i) the Issuer appointed Mr. DeMaria to its Board of Directors with such appointment effective on November 10, 2025, (ii) the Issuer agreed to include Mr. DeMaria, as a designee of the Reporting Persons, on the Issuer's slate of director nominees for election at the 2026 annual meeting of the Issuer's stockholders, and (iii) the Reporting Persons have agreed not to take certain actions with respect to the Issuer during the periods described in the Nomination Agreement. The foregoing description of the Nomination Agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the Nomination Agreement, a copy of which is filed herewith as an exhibit and incorporated herein by reference.
+
+Subject to the terms of, and the limitation set forth in, the Nomination Agreement, the Reporting Persons may from time to time and at any time: (i) acquire additional shares of Common Stock and/or other securities and/or instruments (including equity, debt or other securities or instruments) of the Issuer (or its affiliates) in the open market, in privately negotiated transactions, or otherwise; (ii) dispose of any or all of their shares of Common Stock and/or other securities and/or instruments of the Issuer (or its affiliates) in the open market, in privately negotiated transactions, or otherwise; (iii) enter into swap and/or other derivative transactions with broker-dealers and/or financial institutions counterparties with respect to the securities of the Issuer (or its affiliates) which may be deemed to either increase or decrease the Reporting Persons economic exposure to the value of the shares of Common Stock or other securities of the Issuer); and/or (iv) engage in any other hedging or similar transactions with respect to the shares of Common Stock and/or other securities or instruments of the Issuer.
+
+Other than as set forth above, the Reporting Persons do not have any plans or proposals as of the date of this filing which relate to or would result in any of the actions enumerated in Item 4 of the instructions to Schedule 13D.</transactionPurpose>
+      </item4>
+      <item5>
+        <percentageOfClassSecurities>The Reporting Persons may be deemed to beneficially own, in the aggregate, 14,336,044 shares of the Common Stock, representing approximately 14.4% of the Issuer's outstanding shares of the Common Stock based on (i) 88,649,154 shares of Common Stock outstanding as of November 3, 2025, as reported as reported by the Issuer in its Quarterly Report on Form 10-Q, filed with the Securities and Exchange Commission on November 5, 2025, (ii) the 7,441,860 shares of Common Stock to be issued in the underwritten public offering as disclosed by the Issuer in a press release issued on November 13, 2025, and (iii) the 3,488,372 shares of Common Stock to be issued by the Company to the Reporting Persons pursuant to the terms of the Purchase Agreement.</percentageOfClassSecurities>
+        <numberOfShares>For purposes of this Schedule 13D, each of the Reporting Persons may be deemed to have voting and dispositive power with respect to all of the shares of the Common Stock reported in this Schedule 13D.</numberOfShares>
+        <transactionDesc>On September 5, 2025, the Reporting Persons purchased an aggregate of 2,870,295 shares of Common Stock in an underwritten public offering at the public offering price of $19.60, which purchase was disclosed in the Schedule 13G filed by the Reporting Persons on September 5, 2025. Pursuant to the terms of the Purchase Agreement, on November 11, 2025, the Reporting Persons agreed to purchase an aggregate of 3,488,372 shares of Common Stock from the Issuer in a private placement at a price of $21.50, which purchase is expected to close on or about November 14, 2025. Except as set forth in the preceding sentence, none of the Reporting Persons has effected any transaction in the shares of Common Stock during the past sixty (60) days.</transactionDesc>
+        <listOfShareholders>Not applicable.</listOfShareholders>
+        <date5PercentOwnership>Not applicable.</date5PercentOwnership>
+      </item5>
+      <item6>
+        <contractDescription>The information set forth above in Item 4 regarding the Purchase Agreement and the Nomination Agreement is incorporated herein by reference.
+
+In connection with the transactions contemplated by the Purchase Agreement, the Issuer agreed to, pursuant to the terms of a letter agreement entered into on November 11, 2025, grant the Reporting Persons certain resale registration rights. In connection with prior purchases of shares of Common Stock, the Issuer previously agreed to, pursuant to the terms of letter agreements entered into on August 6, 2025, June 18, 2025, and May 19, 2025, grant the Reporting Persons certain resale registration rights. The foregoing description of the letter agreements does not purport to be complete and is qualified in its entirety by reference to the full text of the letter agreements, copies of which are filed herewith as exhibits and incorporated herein by reference.
+
+In addition, in connection with the transactions contemplated by the Purchase Agreement, the Reporting Persons agreed to enter into a lock-up agreement with respect to the shares of Common Stock. The foregoing description of the lock-up agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the lock-up agreement, a copy of which is filed herewith as an exhibit and incorporated herein by reference.
+
+Subject to the terms of, and the limitation set forth in, the Nomination Agreement, one or more of the Reporting Persons and/or their affiliates may from time to time enter into one or more additional cash-settled equity swap agreements with a broker, or with other third parties, that result in a further increase in the economic exposure of the Reporting Persons to changes in the value of the shares of the Common Stock, or that result in a decrease in the economic exposure of the Reporting Persons to changes in the value of the shares of the Common Stock, and which could require either that the Reporting Persons (or such affiliates) will be obligated to pay to a broker or other third parties, in cash, or a broker or other third parties will be required to pay to the Reporting Persons (or such affiliates), in cash, an amount based upon a decrease or increase, as applicable, in the value of the shares of the Common Stock between the date of the applicable cash-settled equity swap agreement and the maturity date set forth therein
+
+As set forth in Item 3 above, the Reporting Persons and/or their affiliates are parties to one or more prime brokerage and/or other similar agreements, including margin agreements, that provide for margin borrowing in accounts established and maintained with one or more prime brokers and/or other third parties which extend margin credit in the ordinary course of business as and when required by the Reporting Persons, which such agreements govern the shares of the Common Stock reported herein as well as a wide variety of other securities.
+
+Except as otherwise described herein, there are no contracts, arrangements, understandings or relationships (legal or otherwise) among the persons named in Item 2 of the Schedule 13D and between such persons and any person with respect to any securities of the Issuer, including any class of the Issuer's securities used as a reference security, in connection with any call options, put options, security-based swaps or any other derivative securities, transfer or voting of any of the securities, finder's fees, joint ventures, loan or option arrangements, guarantees of profits, division of profits or loss, or the giving or withholding of proxies.</contractDescription>
+      </item6>
+      <item7>
+        <filedExhibits>1.   Joint Filing Agreement of the Reporting Persons.
+
+2.   Director Appointment and Nomination Agreement, dated as of November 10, 2025 (incorporated by reference to Exhibit 10.1 to Centuri Holdings, Inc.'s Current Report on Form 8-K filed by with the Securities and Exchange Commission on November 12, 2025).
+
+3.   Common Stock Purchase Agreement, dated as of November 11, 2025, by and among Centuri Holdings Inc., Icahn Partners LP and Icahn Partners Master Fund LP.*
+
+4.   Registration Rights Letter Agreement, dated as of November 11, 2025, by and among Centuri Holdings Inc., Icahn Partners LP and Icahn Partners Master Fund LP.*
+
+5.   Registration Rights Letter Agreement, dated as of August 6, 2025, by and among Centuri Holdings Inc., Icahn Partners LP and Icahn Partners Master Fund LP (incorporated by reference to Exhibit 10.1 to Centuri Holdings, Inc.'s Current Report on Form 8-K filed by with the Securities and Exchange Commission on August 11, 2025).
+
+6.   Registration Rights Letter Agreement, dated as of June 13, 2025, by and among Centuri Holdings Inc., Icahn Partners LP and Icahn Partners Master Fund LP (incorporated by reference to Exhibit 10.1 to Centuri Holdings, Inc.'s Current Report on Form 8-K filed by with the Securities and Exchange Commission on June 18, 2025).
+
+7.   Registration Rights Letter Agreement, dated as of May 19, 2025, by and among Centuri Holdings Inc., Icahn Partners LP and Icahn Partners Master Fund LP (incorporated by reference to Exhibit 10.1 to Centuri Holdings, Inc.'s Current Report on Form 8-K filed by with the Securities and Exchange Commission on May 22, 2025).
+
+8.   Lock Up Agreement, dated as of November 12, 2025, entered into by the Reporting Persons.*
+
+* Filed herewith</filedExhibits>
+      </item7>
+    </items1To7>
+    <signatureInfo>
+      <signaturePerson>
+        <signatureReportingPerson>Icahn Enterprises L.P.</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Ted Papapostolou</signature>
+          <title>Ted Papapostolou / Chief Financial Officer</title>
+          <date>11/13/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+      <signaturePerson>
+        <signatureReportingPerson>Carl C. Icahn</signatureReportingPerson>
+        <signatureDetails>
+          <signature>/s/ Carl C. Icahn</signature>
+          <title>Carl C. Icahn</title>
+          <date>11/13/2025</date>
+        </signatureDetails>
+      </signaturePerson>
+    </signatureInfo>
+  </formData>
+
+</edgarSubmission>

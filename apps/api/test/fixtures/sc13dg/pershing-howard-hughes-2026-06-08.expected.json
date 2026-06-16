@@ -1,0 +1,80 @@
+{
+  "formType": "13D/A",
+  "isAmendment": true,
+  "amendmentNo": 33,
+  "intent": "active",
+  "eventType": null,
+  "eventDate": "2026-06-04",
+  "previousAccessionNumber": "0001193125-19-306193",
+  "filerCik": "1336528",
+  "securitiesClassTitle": "Common Stock, par value $0.01 per share",
+  "issuer": { "cik": "1981792", "name": "Howard Hughes Holdings Inc.", "cusip": "44267T102" },
+  "reportingPersons": [
+    {
+      "cik": "1336528",
+      "name": "Pershing Square Capital Management, L.P.",
+      "sharesOwned": 27852064,
+      "pctOfClass": 46.7,
+      "soleVotingPower": 9000000,
+      "sharedVotingPower": 0,
+      "soleDispositivePower": 9000000,
+      "sharedDispositivePower": 18852064,
+      "typeOfReportingPerson": "IA"
+    },
+    {
+      "cik": null,
+      "name": "Pershing Square HHH Holdings, LLC",
+      "sharesOwned": 9000000,
+      "pctOfClass": 15.1,
+      "soleVotingPower": 9000000,
+      "sharedVotingPower": 0,
+      "soleDispositivePower": 9000000,
+      "sharedDispositivePower": 0,
+      "typeOfReportingPerson": "OO"
+    },
+    {
+      "cik": null,
+      "name": "Pershing Square Inc.",
+      "sharesOwned": 27852064,
+      "pctOfClass": 46.7,
+      "soleVotingPower": 9000000,
+      "sharedVotingPower": 18852064,
+      "soleDispositivePower": 9000000,
+      "sharedDispositivePower": 18852064,
+      "typeOfReportingPerson": "CO"
+    },
+    {
+      "cik": null,
+      "name": "Pershing Square Partner Group, LLC",
+      "sharesOwned": 27852064,
+      "pctOfClass": 46.7,
+      "soleVotingPower": 9000000,
+      "sharedVotingPower": 18852064,
+      "soleDispositivePower": 9000000,
+      "sharedDispositivePower": 18852064,
+      "typeOfReportingPerson": "OO"
+    },
+    {
+      "cik": null,
+      "name": "Pershing Square Management, LLC",
+      "sharesOwned": 27852064,
+      "pctOfClass": 46.7,
+      "soleVotingPower": 9000000,
+      "sharedVotingPower": 18852064,
+      "soleDispositivePower": 9000000,
+      "sharedDispositivePower": 18852064,
+      "typeOfReportingPerson": "OO"
+    },
+    {
+      "cik": null,
+      "name": "William A. Ackman",
+      "sharesOwned": 27852064,
+      "pctOfClass": 46.7,
+      "soleVotingPower": 9000000,
+      "sharedVotingPower": 18852064,
+      "soleDispositivePower": 9000000,
+      "sharedDispositivePower": 18852064,
+      "typeOfReportingPerson": "IN"
+    }
+  ]
+}
