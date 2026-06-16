@@ -1,5 +1,6 @@
 import { XMLParser } from 'fast-xml-parser';
 import type { EventType } from '@app/shared';
+import { asRecord, numOrNull, scalar, stripCik, toArray } from './xml';
 
 /**
  * Schedule 13D / 13G(빠른·느린 레인) 구조화 XML 파서(2024-12 의무화, ARCHITECTURE §6).
@@ -68,43 +69,14 @@ export interface ParsedSchedule13DG {
   reportingPersons: Schedule13DGReportingPerson[];
 }
 
-// ── XML 탐색 헬퍼(parseTagValue:false → 모든 스칼라는 문자열, 결정적) ─────────
+// ── XML 파서 인스턴스(parseTagValue:false → 모든 스칼라는 문자열, 결정적) ─────────
+// 공용 탐색 헬퍼(asRecord/scalar/toArray/stripCik/numOrNull)는 `./xml` 에서 가져온다.
 const parser = new XMLParser({ ignoreAttributes: true, parseTagValue: false, trimValues: true });
-
-function asRecord(v: unknown): Record<string, unknown> | undefined {
-  return typeof v === 'object' && v !== null && !Array.isArray(v)
-    ? (v as Record<string, unknown>)
-    : undefined;
-}
-
-function scalar(v: unknown): string | undefined {
-  if (typeof v === 'string') return v;
-  if (typeof v === 'number' || typeof v === 'boolean') return String(v);
-  return undefined;
-}
-
-/** 반복 요소는 배열, 단일이면 객체 → 항상 배열로 정규화. */
-function toArray(v: unknown): unknown[] {
-  if (v === undefined || v === null) return [];
-  return Array.isArray(v) ? v : [v];
-}
-
-/** EDGAR CIK 0패딩 제거('0000921669' → '921669'). investors.external_id 시드와 동일 형식. */
-function stripCik(cik: string | undefined): string {
-  return (cik ?? '').replace(/^0+(?=\d)/, '');
-}
 
 /** 보고인 CIK: 있으면 0패딩 제거, 없으면 null(13G 표지·NoCIK=Y 보고인). */
 function cikOrNull(v: unknown): string | null {
   const raw = scalar(v);
   return raw ? stripCik(raw) : null;
-}
-
-function numOrNull(v: unknown): number | null {
-  const s = scalar(v);
-  if (s === undefined || s === '') return null;
-  const n = Number(s);
-  return Number.isFinite(n) ? n : null;
 }
 
 /** MM/DD/YYYY → YYYY-MM-DD. 이미 ISO 면 그대로 통과. */

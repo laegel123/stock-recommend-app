@@ -1,5 +1,6 @@
 import { XMLParser } from 'fast-xml-parser';
 import type { EventType } from '@app/shared';
+import { asRecord, numOrNull, scalar, stripCik, toArray } from './xml';
 
 /**
  * Form 4(내부자·10%↑ 보유자 매매, 빠른 레인) ownershipDocument XML 파서.
@@ -68,14 +69,9 @@ export interface ParsedForm4 {
   events: Form4Event[];
 }
 
-// ── XML 탐색 헬퍼(parseTagValue:false → 모든 스칼라는 문자열, 결정적) ─────────
+// ── XML 파서 인스턴스(parseTagValue:false → 모든 스칼라는 문자열, 결정적) ─────────
+// 공용 탐색 헬퍼(asRecord/scalar/toArray/stripCik/numOrNull)는 `./xml` 에서 가져온다.
 const parser = new XMLParser({ ignoreAttributes: true, parseTagValue: false, trimValues: true });
-
-function asRecord(v: unknown): Record<string, unknown> | undefined {
-  return typeof v === 'object' && v !== null && !Array.isArray(v)
-    ? (v as Record<string, unknown>)
-    : undefined;
-}
 
 /** SEC 패턴은 스칼라를 `<value>…</value>` 로 감싼다. 감싼 경우와 평문 모두에서 텍스트 추출. */
 function valueText(node: unknown): string | undefined {
@@ -84,31 +80,8 @@ function valueText(node: unknown): string | undefined {
   return scalar(node);
 }
 
-function scalar(v: unknown): string | undefined {
-  if (typeof v === 'string') return v;
-  if (typeof v === 'number' || typeof v === 'boolean') return String(v);
-  return undefined;
-}
-
-/** 반복 요소는 배열, 단일이면 객체 → 항상 배열로 정규화. */
-function toArray(v: unknown): unknown[] {
-  if (v === undefined || v === null) return [];
-  return Array.isArray(v) ? v : [v];
-}
-
-/** EDGAR CIK 0패딩 제거('0000797468' → '797468'). investors.external_id 시드와 동일 형식. */
-function stripCik(cik: string | undefined): string {
-  return (cik ?? '').replace(/^0+(?=\d)/, '');
-}
-
 function toBool(v: string | undefined): boolean {
   return v === '1' || v?.toLowerCase() === 'true';
-}
-
-function toNumberOrNull(v: string | undefined): number | null {
-  if (v === undefined || v === '') return null;
-  const n = Number(v);
-  return Number.isFinite(n) ? n : null;
 }
 
 function round2(n: number): number {
@@ -146,9 +119,9 @@ function mapTransaction(node: unknown, table: Form4Event['table']): Form4Event |
   const adRaw = valueText(amounts?.transactionAcquiredDisposedCode);
   const acquiredDisposed = adRaw === 'A' || adRaw === 'D' ? adRaw : null;
 
-  const magnitude = toNumberOrNull(valueText(amounts?.transactionShares)) ?? 0;
-  const pricePerShare = toNumberOrNull(valueText(amounts?.transactionPricePerShare));
-  const sharesAfter = toNumberOrNull(
+  const magnitude = numOrNull(valueText(amounts?.transactionShares)) ?? 0;
+  const pricePerShare = numOrNull(valueText(amounts?.transactionPricePerShare));
+  const sharesAfter = numOrNull(
     valueText(asRecord(tx.postTransactionAmounts)?.sharesOwnedFollowingTransaction),
   );
   const doiRaw = valueText(asRecord(tx.ownershipNature)?.directOrIndirectOwnership);

@@ -1,0 +1,72 @@
+{
+  "valueScale": "thousands",
+  "holdingCount": 5,
+  "totalValueUsd": 5712712000,
+  "holdings": [
+    {
+      "nameOfIssuer": "ACTIVISION BLIZZARD INC",
+      "titleOfClass": "COM",
+      "cusip": "00507V109",
+      "figi": null,
+      "valueUsd": 5152292000,
+      "valueReported": 5152292,
+      "shares": 64315222,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 64315222, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "ALLY FINL INC",
+      "titleOfClass": "COM",
+      "cusip": "02005N100",
+      "figi": null,
+      "valueUsd": 358710000,
+      "valueReported": 358710,
+      "shares": 8250000,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 8250000, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "ALLY FINL INC",
+      "titleOfClass": "COM",
+      "cusip": "02005N100",
+      "figi": null,
+      "valueUsd": 31280000,
+      "valueReported": 31280,
+      "shares": 719420,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 719420, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "APPLE INC",
+      "titleOfClass": "COM",
+      "cusip": "037833100",
+      "figi": null,
+      "valueUsd": 120830000,
+      "valueReported": 120830,
+      "shares": 692000,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 692000, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "COCA COLA CO",
+      "titleOfClass": "COM",
+      "cusip": "191216100",
+      "figi": null,
+      "valueUsd": 49600000,
+      "valueReported": 49600,
+      "shares": 800000,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 800000, "shared": 0, "none": 0 }
+    }
+  ]
+}
