@@ -1,0 +1,36 @@
+{
+  "formType": "SC 13D",
+  "isAmendment": false,
+  "amendmentNo": null,
+  "intent": "active",
+  "eventType": "STAKE_NEW",
+  "eventDate": "2025-11-10",
+  "previousAccessionNumber": null,
+  "filerCik": "921669",
+  "securitiesClassTitle": "Common Stock, par value $0.01 per share",
+  "issuer": { "cik": "1981599", "name": "Centuri Holdings, Inc.", "cusip": "155923105" },
+  "reportingPersons": [
+    {
+      "cik": "813762",
+      "name": "Icahn Enterprises L.P.",
+      "sharesOwned": 14336044,
+      "pctOfClass": 14.4,
+      "soleVotingPower": 14336044,
+      "sharedVotingPower": 0,
+      "soleDispositivePower": 14336044,
+      "sharedDispositivePower": 0,
+      "typeOfReportingPerson": "PN"
+    },
+    {
+      "cik": "921669",
+      "name": "Carl C. Icahn",
+      "sharesOwned": 14336044,
+      "pctOfClass": 14.4,
+      "soleVotingPower": 14336044,
+      "sharedVotingPower": 0,
+      "soleDispositivePower": 14336044,
+      "sharedDispositivePower": 0,
+      "typeOfReportingPerson": "IN"
+    }
+  ]
+}

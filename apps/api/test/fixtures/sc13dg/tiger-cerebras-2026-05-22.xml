@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13g" xmlns:com="http://www.sec.gov/edgar/common">
+  <schemaVersion>X0202</schemaVersion>
+<headerData>
+    <submissionType>SCHEDULE 13G</submissionType>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <!-- Field: Pseudo-Tag; ID: Name; Data: TIGER GLOBAL MANAGEMENT LLC -->
+          <cik>0001167483</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <securitiesClassTitle>Class A Common Stock, $0.00001 par value per share</securitiesClassTitle>
+      <eventDateRequiresFilingThisStatement>05/15/2026</eventDateRequiresFilingThisStatement>
+      <issuerInfo>
+        <issuerCik>0002021728</issuerCik>
+        <issuerName>Cerebras Systems Inc.</issuerName>
+        <issuerCusips>
+          <issuerCusipNumber>15675D103</issuerCusipNumber>
+        </issuerCusips>
+        <issuerPrincipalExecutiveOfficeAddress>
+          <com:street1>1237 E. Arques Ave.</com:street1>
+          <com:city>Sunnyvale</com:city>
+          <com:stateOrCountry>CA</com:stateOrCountry>
+          <com:zipCode>94085</com:zipCode>
+        </issuerPrincipalExecutiveOfficeAddress>
+      </issuerInfo>
+      <designateRulesPursuantThisScheduleFiled>
+        <designateRulePursuantThisScheduleFiled>Rule 13d-1(c)</designateRulePursuantThisScheduleFiled>
+      </designateRulesPursuantThisScheduleFiled>
+    </coverPageHeader>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Tiger Global Investments, L.P.</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>E9</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>2999000.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>2999000.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>2999000.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>8.69</classPercent>
+      <typeOfReportingPerson>PN</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+
+      <reportingPersonName>Tiger Global Performance, LLC</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>2999000.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>2999000.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>2999000.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>8.69</classPercent>
+      <typeOfReportingPerson>OO</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+
+      <reportingPersonName>Tiger Global Management, LLC</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>3496222.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>3496222.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>3496222.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>9.99</classPercent>
+      <typeOfReportingPerson>IA</typeOfReportingPerson>
+      <typeOfReportingPerson>OO</typeOfReportingPerson>
+      <comments>Includes 497,222 shares of Class A Common Stock, $0.00001 par value per share, issuable upon conversion of shares of the issuer's Class B Common Stock, par value $0.00001 per share.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+
+      <reportingPersonName>Charles P. Coleman III</reportingPersonName>
+      <memberGroup>b</memberGroup>
+      <citizenshipOrOrganization>X1</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>3496222.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>3496222.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>3496222.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+      <classPercent>9.99</classPercent>
+      <typeOfReportingPerson>HC</typeOfReportingPerson>
+      <typeOfReportingPerson>IN</typeOfReportingPerson>
+      <comments>Includes 497,222 shares of Class A Common Stock, $0.00001 par value per share, issuable upon conversion of shares of the issuer's Class B Common Stock, par value $0.00001 per share.</comments>
+    </coverPageHeaderReportingPersonDetails>
+    <items>
+      <item1>
+        <issuerName>Cerebras Systems Inc.</issuerName>
+        <issuerPrincipalExecutiveOfficeAddress>1237 E. Arques Ave., Sunnyvale, CA 94085</issuerPrincipalExecutiveOfficeAddress>
+      </item1>
+      <item2>
+        <filingPersonName>Tiger Global Investments, L.P.
+Tiger Global Performance, LLC
+Tiger Global Management, LLC
+Charles P. Coleman III</filingPersonName>
+        <principalBusinessOfficeOrResidenceAddress>Tiger Global Investments, L.P.
+c/o Citco Fund Services (Cayman Islands) Limited
+P.O. Box 31106
+89 Nexus Way
+Camana Bay
+Grand Cayman KY1-1205
+Cayman Islands
+
+Tiger Global Performance, LLC
+Tiger Global Management, LLC
+9 West 57th Street
+35th Floor
+New York, New York 10019
+
+Charles P. Coleman III
+c/o Tiger Global Management, LLC
+9 West 57th Street
+35th Floor
+New York, New York 10019</principalBusinessOfficeOrResidenceAddress>
+        <citizenship>Tiger Global Investments, L.P. - Cayman Islands limited partnership
+Tiger Global Performance, LLC - Delaware limited liability company
+Tiger Global Management, LLC - Delaware limited liability company
+Charles P. Coleman III - United States citizen</citizenship>
+      </item2>
+      <item3>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item3>
+      <item4>
+        <amountBeneficiallyOwned>Tiger Global Investments, L.P. - 2,999,000
+Tiger Global Performance, LLC - 2,999,000
+Tiger Global Management, LLC - 3,496,222
+Charles P. Coleman III - 3,496,222</amountBeneficiallyOwned>
+        <classPercent>Tiger Global Investments, L.P. - 8.69%
+Tiger Global Performance, LLC - 8.69%
+Tiger Global Management, LLC - 9.99%
+Charles P. Coleman III - 9.99%</classPercent>
+        <numberOfSharesPersonHas>
+          <solePowerOrDirectToVote>Tiger Global Investments, L.P. - 0
+Tiger Global Performance, LLC - 0
+Tiger Global Management, LLC - 0
+Charles P. Coleman III - 0</solePowerOrDirectToVote>
+          <sharedPowerOrDirectToVote>Tiger Global Investments, L.P. -  2,999,000
+Tiger Global Performance, LLC -  2,999,000
+Tiger Global Management, LLC -  3,496,222
+Charles P. Coleman III - 3,496,222</sharedPowerOrDirectToVote>
+          <solePowerOrDirectToDispose>Tiger Global Investments, L.P. -  0
+Tiger Global Performance, LLC - 0
+Tiger Global Management, LLC - 0
+Charles P. Coleman III - 0</solePowerOrDirectToDispose>
+          <sharedPowerOrDirectToDispose>Tiger Global Investments, L.P. -  2,999,000
+Tiger Global Performance, LLC -  2,999,000
+Tiger Global Management, LLC -  3,496,222
+Charles P. Coleman III - 3,496,222</sharedPowerOrDirectToDispose>
+        </numberOfSharesPersonHas>
+      </item4>
+      <item5>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item5>
+      <item6>
+        <notApplicableFlag>N</notApplicableFlag>
+        <ownershipMoreThan5PercentOnBehalfOfAnotherPerson>All of the securities reported in this Schedule 13G are directly owned by advisory clients of Tiger Global Management, LLC. None of those advisory clients, other than Tiger Global Investments, L.P., may be deemed to beneficially own more than 5% of the Class A Common Stock, $0.00001 par value per share.</ownershipMoreThan5PercentOnBehalfOfAnotherPerson>
+      </item6>
+      <item7>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item7>
+      <item8>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item8>
+      <item9>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item9>
+      <item10>
+        <notApplicableFlag>N</notApplicableFlag>
+        <certifications>By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under § 240.14a-11.</certifications>
+      </item10>
+    </items>
+    <exhibitInfo>Exhibit A - Joint Filing Agreement</exhibitInfo>
+    <signatureInformation>
+      <reportingPersonName>Tiger Global Investments, L.P.</reportingPersonName>
+      <signatureDetails>
+        <signature>By Tiger Global Performance, LLC, Its General Partner, /s/ Eric Lane</signature>
+        <title>Eric Lane, President &amp; Chief Operating Officer</title>
+        <date>05/22/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Tiger Global Performance, LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Eric Lane</signature>
+        <title>Eric Lane, President &amp; Chief Operating Officer</title>
+        <date>05/22/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Tiger Global Management, LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Eric Lane</signature>
+        <title>Eric Lane, President &amp; Chief Operating Officer</title>
+        <date>05/22/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Charles P. Coleman III</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Charles P. Coleman III</signature>
+        <title>Charles P. Coleman III</title>
+        <date>05/22/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+  </formData>
+
+</edgarSubmission>
