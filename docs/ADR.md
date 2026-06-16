@@ -132,3 +132,14 @@
 **강제 지점**: E2E는 무거워 `.githooks/pre-push`에서 **기본 비활성(opt-in `RUN_E2E=1`)**, **상시 강제는 CI**(`build`를 CI로 옮긴 ADR-0015와 같은 논리). 개발 중 시각 검증은 Playwright **MCP**(`.mcp.json`)로, 검증된 시나리오는 E2E 스펙으로 박제.
 **대안**: 전면 E2E(느리고 flaky, 루프 둔화), E2E 없음(면책 등 화면 가드레일 회귀를 못 잡음), 수동 눈검증만(회귀 취약·재현 불가).
 **결과**: 빠른 단위 피드백을 유지하면서 **화면 전용 가드레일(특히 ADR-0013 면책)을 결정적으로 고정**. 첫 E2E 스펙은 `e2e/disclaimer.spec.ts`(면책 푸터). 룰은 `CLAUDE.md` 하네스 섹션에 반영.
+
+## ADR-0017 — SEC fetch 레이어의 결정적 레이트리미터(bottleneck 대신 주입 Clock)
+**상태**: Accepted
+**맥락**: 가드레일은 **SEC ≤8 req/s + User-Agent 필수 + 429 0건**을 요구하고, 하네스는 모든 변경의 **결정적 검증**을 요구한다(ADR-0012). PLAN 의 기술 선택은 `bottleneck`(전역 ≤8 req/s)이었으나, bottleneck 은 실제 타이머·내부 상태로 도는 라이브러리라 간격·백오프를 **결정적으로 단위테스트하기 어렵다**(실시간 대기·flaky). ADR-0005 의 BullMQ 는 *잡* 단위 재시도·동시성을 다루지, *per-request* 레이트 프리미티브가 아니다.
+**결정**: SEC fetch 레이어를 **주입 가능한 `Clock`**(now/sleep) 위에서 도는 자체 프리미티브로 구현한다.
+- `RateLimiter`: 단일 프로미스 체인으로 작업을 줄세워 **디스패치 간격 ≥ minIntervalMs**(=125ms → 8 req/s) 보장. 간격은 슬롯 확보 시점 기준이라 작업 지속시간과 분리.
+- `EdgarClient`: 모든 요청을 limiter 로 통과 + **UA 미설정 시 생성자 fail-loud** + 요청별 **타임아웃 AbortSignal** + 429/5xx·네트워크 오류 **백오프 재시도**(`Retry-After` 우선·상한 클램프, 없으면 cap·지터 지수 백오프), 비재시도 4xx 즉시 throw, **HTTP 상태 소진 시 `EdgarHttpError`·네트워크 오류 소진 시 원오류 전파**, 폐기 응답 body cancel. `fetch`·`clock`·`limiter`·`random` 주입으로 결정적 테스트.
+- **전역성은 기본값으로 강제(safe-by-default)**: `clock`/`limiter`/`minIntervalMs` 미주입 시 **모듈 공유 `sharedLimiter`** 를 쓴다 → fast/slow 레인 폴러가 각자 `createEdgarClient()` 를 불러도 합산 ≤8 req/s. 호출자 기억력에 의존하지 않음(주입 시에만 분리 — 테스트 격리용).
+- 역할 분담: **BullMQ(ADR-0005)=잡 큐·재시도·동시성**, **이 프리미티브=per-request 레이트·UA·HTTP 백오프**. 둘은 보완.
+**대안**: ① bottleneck 채택(실시간 의존 → flaky·결정적 테스트 곤란, 하네스 가치와 충돌). ② BullMQ 레이트리미터에만 의존(잡 레벨이라 단일 요청 간격·UA·HTTP 상태 처리를 못 덮음, 단위테스트 불가). ③ 가짜 타이머(`vi.useFakeTimers`)로 bottleneck 테스트(설정 복잡·내부 구현 의존, 깨지기 쉬움).
+**결과**: ≤8 req/s(전역 공유 limiter 포함)·UA·429 백오프·Retry-After 클램프·타임아웃이 **가짜 시계 주입으로 0ms·결정적**으로 검증됨(`rate-limiter.test.ts`·`edgar-client.test.ts`). `bottleneck` **도입 회피**(애초에 package.json/lock 에 추가하지 않음 — 실시간 의존 라이브러리 대신 자체 프리미티브). fast/slow 레인 폴러는 이 클라이언트를 공유 진입점으로 사용.
