@@ -1,0 +1,59 @@
+{
+  "valueScale": "dollars",
+  "holdingCount": 4,
+  "totalValueUsd": 1029249723,
+  "holdings": [
+    {
+      "nameOfIssuer": "ALLY FINL INC",
+      "titleOfClass": "COM",
+      "cusip": "02005N100",
+      "figi": null,
+      "valueUsd": 463886547,
+      "valueReported": 463886547,
+      "shares": 12719675,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 12719675, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "ALLY FINL INC",
+      "titleOfClass": "COM",
+      "cusip": "02005N100",
+      "figi": null,
+      "valueUsd": 102257321,
+      "valueReported": 102257321,
+      "shares": 2803875,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 2803875, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "AMERICAN EXPRESS CO",
+      "titleOfClass": "COM",
+      "cusip": "025816109",
+      "figi": null,
+      "valueUsd": 309391895,
+      "valueReported": 309391895,
+      "shares": 1149942,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 1149942, "shared": 0, "none": 0 }
+    },
+    {
+      "nameOfIssuer": "APPLE INC",
+      "titleOfClass": "COM",
+      "cusip": "037833100",
+      "figi": null,
+      "valueUsd": 153713960,
+      "valueReported": 153713960,
+      "shares": 692000,
+      "sharesType": "SH",
+      "putCall": null,
+      "investmentDiscretion": "DFND",
+      "votingAuthority": { "sole": 692000, "shared": 0, "none": 0 }
+    }
+  ]
+}
