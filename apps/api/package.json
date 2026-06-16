@@ -11,7 +11,7 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "node -e \"console.log('db:seed — Phase 0 slice 3 (investors.seed) 미구현')\""
+    "db:seed": "tsx src/db/seed.ts"
   },
   "dependencies": {
     "@app/shared": "workspace:*",
