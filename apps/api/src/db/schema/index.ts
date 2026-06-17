@@ -185,7 +185,7 @@ export const activityEvents = pgTable(
     sharesAfter: sharesCol('shares_after'), // 거래 후 잔고(양수)
     pctOfCompanyAfter: pctCol('pct_of_company_after'),
     pricePerShare: numeric('price_per_share', { precision: 20, scale: 6 }),
-    value: moneyCol('value'), // 부호 있는 거래 금액(=shares_delta×price). 표시 총액은 abs() 권장
+    value: moneyCol('value'), // 부호 있는 거래금액. 다거래 집계 시 '가격 보고분만' 합산 → shares_delta×price 와 다를 수 있음(ADR-0018). 표시 총액은 abs() 권장
     intent: intentEnum('intent'),
     accessionNumber: text('accession_number').notNull(),
     rawUrl: text('raw_url').notNull(),

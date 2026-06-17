@@ -143,3 +143,15 @@
 - 역할 분담: **BullMQ(ADR-0005)=잡 큐·재시도·동시성**, **이 프리미티브=per-request 레이트·UA·HTTP 백오프**. 둘은 보완.
 **대안**: ① bottleneck 채택(실시간 의존 → flaky·결정적 테스트 곤란, 하네스 가치와 충돌). ② BullMQ 레이트리미터에만 의존(잡 레벨이라 단일 요청 간격·UA·HTTP 상태 처리를 못 덮음, 단위테스트 불가). ③ 가짜 타이머(`vi.useFakeTimers`)로 bottleneck 테스트(설정 복잡·내부 구현 의존, 깨지기 쉬움).
 **결과**: ≤8 req/s(전역 공유 limiter 포함)·UA·429 백오프·Retry-After 클램프·타임아웃이 **가짜 시계 주입으로 0ms·결정적**으로 검증됨(`rate-limiter.test.ts`·`edgar-client.test.ts`). `bottleneck` **도입 회피**(애초에 package.json/lock 에 추가하지 않음 — 실시간 의존 라이브러리 대신 자체 프리미티브). fast/slow 레인 폴러는 이 클라이언트를 공유 진입점으로 사용.
+
+## ADR-0018 — Form 4 다중 거래의 단일 `activity_events` 행 집계(순증감 네팅·VWAP·종료 잔고)
+**상태**: Accepted
+**맥락**: `parseForm4` 는 한 공시의 **거래(transaction)별로 펼친** 행을 낸다(OXY 매수 7건, BAC 매도 4건 …). 그러나 `activity_events` 의 unique 키는 `(investor_id, accession_number, security_id)` 이고(ADR-0002), Form 4 는 발행사 1곳(= 종목 1개)이라 한 공시의 모든 거래가 **같은 키**로 떨어진다. 파서 docstring 들은 일관되게 "(investor, accession, security) 멱등 집계는 인제스트 레이어 책임"으로 미뤘는데, **어떻게** 집계할지(네팅·대표 가격·종료 잔고·이벤트 방향)는 합의(consensus) 점수에 직접 영향하므로 결정으로 박제한다.
+**결정**: Form 4 한 건을 **정확히 한 행으로 집계**하는 순수 매핑 레이어(`ingest/map/form4-events.ts`)를 둔다. 거래가 없으면(보유 전용 Form 3/4·홀딩) `null`(적재 없음).
+- `sharesDelta` = 전 거래의 **부호 있는** 변동 합(매수 +, 매도 −) → 순증감. `eventType` = 그 부호로 결정(≥0 → BUY, <0 → SELL). 단일 종목·단일 공시의 **순방향**을 피드 헤드라인으로 본다.
+- `value` = 가격 보고된 거래의 부호 있는 거래금액 합(전부 미보고 → null). `pricePerShare` = 가격 보고 거래의 **거래금액가중평균(VWAP, 항상 양수)** — 부호는 shares/value 에만. 가격 0(무상 RSU)은 0 으로 보존(미보고 null 과 구분).
+- `sharesAfter` = **시간상 마지막 거래(거래일 최신·동일자면 문서순 마지막)의 러닝 잔고**(종료 포지션). `eventDate` = 거래일 중 최신. `pctOfCompanyAfter`·`intent` = Form 4 미보고 → null.
+- **다중 보고인(버크셔 CIK 1067983 + 버핏 315090 동일 거래) 이중집계 방지**는 이 함수가 아니라 **폴러 책임**: 폴러가 추적-CIK 집합으로 공시를 단일 투자자에 귀속해 `mapForm4ToActivityEvent` 를 한 번만 부른다(`ctx.investorId`). 매퍼는 해소된 id 를 받는 순수 함수라 DB·네트워크 무의존.
+**대안**: ① 거래별 1행 적재(unique 키 위반 → 멱등 불가, 같은 공시 재폴링이 충돌·중복). ② 별도 키(거래 인덱스 포함)로 거래별 보존(피드·합의가 한 공시를 N건으로 과대계상, "버핏이 OXY 7번 샀다"). ③ 파서에서 집계(파서를 사실충실 순수 함수로 두는 레이어 경계 위반 — ADR-0012). ④ `sharesAfter` 를 합/평균(러닝 잔고는 누적값이라 합산 무의미; 종료 잔고가 유일하게 옳음).
+**한계(문서화)**: 파생(Table II)+비파생(Table I)이 한 공시에 섞이면 잔고는 종류별로 다른데 한 행으로 접으므로 `sharesAfter` 는 **마지막 거래 종류의 잔고**(근사)다. 큐레이션 fixture 엔 혼합 케이스가 없고, 정밀 분해가 필요해지면 종목 해소를 발행사→클래스 단위로 세분화하는 후속 ADR 로 다룬다. 또한 `value`(가격 보고분 합)와 `sharesDelta`(전 거래 합)는 **모집단이 다르다** — 일부만 가격 보고된 공시(예: 시장매수 + 무상증여 혼재)에선 `value ≠ sharesDelta × pricePerShare`. 다운스트림은 `value` 를 '가격 보고된 거래대금', `pricePerShare` 를 그 VWAP 로 해석해야 한다(임의 곱으로 재구성 금지). 이 불변식은 schema `activity_events.value` 주석에도 박제.
+**결과**: OXY(7건 매수 → +18,102,616·VWAP 54.409805·잔고 136,373,000·BUY)·BAC(4건 매도 → −33,890,927·SELL)·Oracle RSU(0원 파생 부여 → value/price 0≠null)·보유전용(→ null)·혼합 네팅(순<0 → SELL)·**전부 미보고(→ value/price null)**·**최신거래 잔고 미보고(→ sharesAfter null, 폴백 없음)**가 `form4-events.test.ts` 골든으로 결정적 검증. 폴러(`ingest:edgar-fast`)는 이 매퍼 + 식별자 해소 + 멱등 upsert 로 `activity_events` 를 채운다.
